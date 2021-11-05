@@ -26,10 +26,10 @@ def get_new_choice(previous_value, choices):
 #current selections/trip display
 def trip_display(current_selections):
     if confirmed == False:
-        print(f'\nThe following trip has been selected for you:\nDestination: {my_current_trip[0]}, Restaurant: {my_current_trip[1]}, Transport: {my_current_trip[2]}, Entertainment: {my_current_trip[3]}')
+        print(f'\nThe following trip has been selected for you:\nDestination: {current_selections[0]}, Restaurant: {current_selections[1]}, Transport: {current_selections[2]}, Entertainment: {current_selections[3]}')
     else: 
         print('Going on trip...\n')
-        print (f'The following trip has been completed: You traveled to {my_current_trip[0]} in a {my_current_trip[2]}. You ate at a {my_current_trip[1]} and saw a {my_current_trip[3]}. \n')
+        print (f'The following trip has been completed: You traveled to {current_selections[0]} in a {current_selections[2]}. You ate at a {current_selections[1]} and saw a {current_selections[3]}. \n')
 
 def get_current_selections(destination_list, restaurant_list, transport_list, entertainment_list):
     current_selections = []
