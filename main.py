@@ -3,7 +3,7 @@ import random
 
 #lists for storage
 destinations = ['Hawaii', 'Maui', 'Colorado']
-restaurants = ['Fast Food', 'Mom and Pop Restaurant', 'Fancy Restaurant']
+restaurants = ['Fast Food Restaurant', 'Mom and Pop Restaurant', 'Fancy Restaurant']
 mode_of_transport = ['Bus', 'Car', 'Train']
 entertainments = ['Movie', 'Play', 'Musical']
 
@@ -30,16 +30,16 @@ entertainment  = random_choice_single(entertainments)
 
 def trip_display(destination, restaurant, transport, entertainment):
     if confirmed == False:
-        print(f'\nThe following trip has been selected for you:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment} \n')
+        print(f'\nThe following trip has been selected for you:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment}')
     else: 
-        print (f'The following trip has been completed:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment} \n')
+        print (f'The following trip has been completed: You traveled to {destination} in a {transport}. You ate at a {restaurant} and saw a {entertainment}. \n')
 
 current_trip = trip_display(destination,restaurant, transport, entertainment)
 
 #while loop through selections until confirmed by user
 
 while confirmed == False:
-    change = int(input('What would you like to change about your trip? 0-Nothing, confirm my trip!, 1-Destination, 2-Restaurant, 3-Transport, 4-Entertainment: '))
+    change = int(input('\nWhat would you like to change about your trip?\n0-Nothing, confirm my trip!, 1-Destination, 2-Restaurant, 3-Transport, 4-Entertainment: '))
     if change == 0:
         print (f'\nThe following trip has been confirmed for you:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment} \n')
         confirmed = True
