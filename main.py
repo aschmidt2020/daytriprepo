@@ -1,11 +1,17 @@
 #day trip generator - due Monday 11/8 - using while loop (not a function)
 import random
+import itertools
 
 #lists to store options
 destinations = ['Hawaii', 'Maui', 'Colorado']
 restaurants = ['Fast Food', 'Mom and Pop Restaurant', 'Fancy Restaurant']
 mode_of_transport = ['Bus', 'Car', 'Train']
 entertainments = ['Movie', 'Play', 'Musical']
+
+destinations_cycle = itertools.cycle(destinations)
+restaurants_cycle = itertools.cycle(restaurants)
+mode_of_transport_cycle = itertools.cycle(mode_of_transport)
+entertainments_cycle = itertools.cycle (entertainments)
 
 #random choice generator
 def random_choice_single(choice_list):
@@ -32,16 +38,16 @@ while confirmed == False:
         print (f'\nThe following trip has been confirmed for you:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment} \n')
         confirmed = True
     elif change == 1:
-        destination = random_choice_single(destinations)
+        destination = next(destinations_cycle)
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 2:
-        restaurant = random_choice_single(restaurants)
+        restaurant = next(restaurants_cycle)
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 3:
-        transport = random_choice_single(mode_of_transport)
+        transport = next(mode_of_transport_cycle)
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 4:
-        entertainment = random_choice_single(entertainments)
+        entertainment = next(entertainments_cycle)
         trip_display(destination, restaurant, transport, entertainment)
 
 #display for completed trip
