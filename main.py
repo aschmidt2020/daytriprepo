@@ -2,7 +2,7 @@
 import random
 import itertools
 
-#lists to store options
+#lists to store options plus iterable list
 destinations = ['Hawaii', 'Maui', 'Colorado']
 restaurants = ['Fast Food', 'Mom and Pop Restaurant', 'Fancy Restaurant']
 mode_of_transport = ['Bus', 'Car', 'Train']
