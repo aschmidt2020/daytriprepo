@@ -1,30 +1,32 @@
 #day trip generator - due Monday 11/8 - using while loop (not a function)
 import random
-import itertools
 
-#lists to store options plus iterable list
+#lists for storage
 destinations = ['Hawaii', 'Maui', 'Colorado']
 restaurants = ['Fast Food', 'Mom and Pop Restaurant', 'Fancy Restaurant']
 mode_of_transport = ['Bus', 'Car', 'Train']
 entertainments = ['Movie', 'Play', 'Musical']
 
-destinations_cycle = itertools.cycle(destinations)
-restaurants_cycle = itertools.cycle(restaurants)
-mode_of_transport_cycle = itertools.cycle(mode_of_transport)
-entertainments_cycle = itertools.cycle (entertainments)
+confirmed = False #will use for while loop until trip is 'confirmed'
 
-#random choice generator
+#random choice/new choice generator
 def random_choice_single(choice_list):
     random_choice = random.choice(choice_list)
     return random_choice
+
+def get_new_choice(previous_value, choices):
+    needs_new = True
+    while needs_new == True:
+            destination = random_choice_single(choices)
+            if(previous_value != destination):
+                needs_new = False
+    return destination
 
 #current selections/trip display
 destination = random_choice_single(destinations)
 restaurant = random_choice_single(restaurants)
 transport = random_choice_single(mode_of_transport)
 entertainment  = random_choice_single(entertainments)
-
-confirmed = False
 
 def trip_display(destination, restaurant, transport, entertainment):
     if confirmed == False:
@@ -42,18 +44,22 @@ while confirmed == False:
         print (f'\nThe following trip has been confirmed for you:\nDestination: {destination}, Restaurant: {restaurant}, Transport: {transport}, Entertainment: {entertainment} \n')
         confirmed = True
     elif change == 1:
-        destination = next(destinations_cycle)
+        destination = get_new_choice(destination, destinations)
+
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 2:
-        restaurant = next(restaurants_cycle)
+        restaurant = get_new_choice(restaurant, restaurants)
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 3:
-        transport = next(mode_of_transport_cycle)
+        transport = get_new_choice(transport, mode_of_transport)
         trip_display(destination, restaurant, transport, entertainment)
     elif change == 4:
-        entertainment = next(entertainments_cycle)
+        entertainment = get_new_choice(entertainment, entertainments)
         trip_display(destination, restaurant, transport, entertainment)
 
 print('Going on trip...\n')
 
 completed_trip = trip_display(destination, restaurant, transport, entertainment)    
+
+
+
