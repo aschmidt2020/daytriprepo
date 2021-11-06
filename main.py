@@ -3,7 +3,7 @@
 import random
 
 #lists for storage
-destinations = ['Hawaii', 'Maui', 'Colorado']
+destinations = ['Hawaii', 'Alaska', 'Colorado']
 restaurants = ['Fast Food Restaurant', 'Mom and Pop Restaurant', 'Fancy Restaurant']
 mode_of_transport = ['Bus', 'Car', 'Train']
 entertainments = ['Movie', 'Play', 'Musical']
